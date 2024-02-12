@@ -10,11 +10,13 @@
       font-family: 'Arial', sans-serif; /* Default font */
       margin: 0;
       padding: 0;
-      background-color: #f5f5f5;
+      background-color: #0e0d0d00;
+      background-image: url("c:/Users/Lenovo/Pictures/b.jpg"); /* Replace 'path_to_your_image.jpg' with the actual path to your image */
+      background-size: cover;
+      background-position: center;
     }
     .container {
-      max-width: 800px;
-      margin: auto;
+      width: 95%; /* Fill the entire width of the screen */
       padding: 20px;
     }
     h1 {
@@ -25,7 +27,7 @@
     p {
       font-family: 'Georgia', serif; /* Paragraph font */
       font-size: 18px;
-      color: #333;
+      color: #fdf8f8;
       margin-bottom: 10px;
     }
     ul {
@@ -37,32 +39,75 @@
       background-color: #fff;
       padding: 20px;
       border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 8px rgb(238, 234, 234);
       margin-bottom: 20px;
+    }
+    .user {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+    .user img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+    .user-name {
+      font-weight: bold;
+      margin-right: 5px;
+      color: #007bff; /* Blue color for user names */
+    }
+    .user-activity {
+      flex: 1;
+    }
+    .user-activity video {
+      width: 20%;
+      border-radius: 10px;
+      margin-top: 5px;
+    }
+    .chat {
+      background-color: #161616;
+      color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+    }
+    .chat .user-name {
+      color: #007bff; /* Blue color for user names */
     }
   </style>
 </head>
 <body>
   <div class="container">
     <h1>Community Forums</h1>
-    <div class="feature">
-      <h2>Engage in Conversations</h2>
-      <p>Participate in discussions on various mental health topics, share personal experiences, and connect with others in a supportive environment.</p>
-    </div>
 
-    <div class="feature">
-      <h2>Ask Questions</h2>
-      <p>Seek advice, guidance, and answers to your questions related to mental health, therapy, coping strategies, and self-care.</p>
-    </div>
-
-    <div class="feature">
-      <h2>Seek Advice</h2>
-      <p>Receive support, empathy, and practical advice from community members who may have faced similar challenges or experiences.</p>
-    </div>
-
-    <div class="feature">
-      <h2>Share Insights</h2>
-      <p>Share your insights, tips, and perspectives on mental health and well-being to contribute to a vibrant and supportive community.</p>
+    <div class="feature chat">
+      <h2>User Contributions</h2>
+      <div class="user">
+        <img src="c:\Users\Lenovo\Pictures\user 2.jpg" alt="User 1">
+        <div class="user-activity">
+          <span class="user-name">Shreya:</span>
+          <p>"Morning yoga vibes got me feeling alive! 🌅💫 Energized, active, and oh-so-happy! 🧘‍♂️✨ Here's to starting the day right! #YogaMagic #MorningBliss"</p>
+          <video src="c:\Users\Lenovo\Downloads\yoga.mp4" controls></video>
+        </div>
+      </div>
+      <div class="user">
+        <img src="c:\Users\Lenovo\Pictures\user 5.jfif" alt="User 2">
+        <div class="user-activity">
+          <span class="user-name">John:</span>
+          <p>"🌟 New to meditation? Here's your invitation to find peace within. Close your eyes, breathe, and let go. 🧘‍♂️✨ #BeginnerMeditation #InnerCalm"</p>
+          <video src="c:\Users\Lenovo\Downloads\meditation.mp4" controls></video>
+        </div>
+      </div>
+      <div class="user">
+        <img src="c:\Users\Lenovo\Pictures\user 4.jfif" alt="User 3">
+        <div class="user-activity">
+          <span class="user-name">Shawn:</span>
+          <p>"Let's dance away the stress and feel the rhythm of life! 💃 Join me in our Zumba class today and let's shake, shimmy, and groove our way to happiness! 🎶🌟 #ZumbaVibes #DanceFitness"</p>
+          <video src="c:\Users\Lenovo\Downloads\zumba.mp4" controls></video>
+        </div>
+      </div>
+      <!-- Add more users and their activities as needed -->
     </div>
 
     <a href="dashboard.html">Back to Dashboard</a>
