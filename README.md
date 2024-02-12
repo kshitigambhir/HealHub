@@ -1,4 +1,4 @@
-**HealHub**<br>
+# HealHub <br>
 Many individuals face challenges in accessing timely and adequate mental health support, leading to issues such as stress, anxiety, depression, and feelings of isolation. Existing solutions often lack accessibility, affordability, and personalization, making it difficult for individuals to receive the support they need when they need it.<br><br>
 **Website contains**
 1. *Guided Meditation:* Access guided meditation sessions for stress relief, anxiety management, mindfulness, and relaxation.
