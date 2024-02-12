@@ -3,69 +3,162 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Peer Support Groups - Mental Health Support Platform</title>
+  <title>Chat Page</title>
   <link rel="stylesheet" href="styles.css">
   <style>
     body {
-      font-family: 'Arial', sans-serif; /* Default font */
+      font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #f5f5f5;
+      background-color: #08080800;
+      color: #0c010100;
     }
     .container {
-      max-width: 800px;
+      max-width: 1800px;
       margin: auto;
       padding: 20px;
     }
-    h1 {
-      font-family: 'Times New Roman', serif; /* Heading font */
-      font-size: 32px;
-      margin-bottom: 20px;
-    }
-    p {
-      font-family: 'Georgia', serif; /* Paragraph font */
-      font-size: 18px;
-      color: #333;
-      margin-bottom: 10px;
-    }
-    ul {
-      font-family: 'Verdana', sans-serif; /* List font */
-      list-style-type: disc;
-      margin-left: 20px;
-    }
-    .feature {
-      background-color: #fff;
-      padding: 20px;
+    .chat {
+      background-color: #0a1014; /* Changed chat background color to black */
       border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      margin-bottom: 20px;
+      box-shadow: 0 4px 8px rgba(19, 19, 19, 0.1);
+      position: relative;
+      height: calc(100vh - 100px); /* Adjust to make room for keyboard */
+      overflow-y: auto;
+      color: #ece4e4; /* Changed chat text color to white */
+    }
+    .message {
+      padding: 10px 20px;
+      border-bottom: 1px solid #eee;
+      display: flex;
+      align-items: flex-start; /* Align items at the top */
+    }
+    .user-img {
+      width: 60px; /* Adjust user image size */
+      height: 60px; /* Adjust user image size */
+      border-radius: 50%; /* Make user image circular */
+      margin-right: 10px;
+    }
+    .user-name {
+      font-weight: bold;
+      color: #add8e6; /* Changed user name color to light blue */
+    }
+    .message-content {
+      flex: 1;
+    }
+    .image {
+      max-width: 200px; /* Adjust image size */
+      max-height: 200px; /* Adjust image size */
+      border-radius: 10px;
+      margin-top: 10px;
+    }
+    .keyboard {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: #fff;
+      padding: 10px;
+      box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+      display: flex;
+      align-items: center;
+    }
+    .message-input {
+      flex: 1;
+      margin-right: 10px;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      outline: none;
+    }
+    .send-button {
+      background-color: #007bff;
+      color: #fff;
+      padding: 8px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      outline: none;
+    }
+    .upload-button {
+      background-color: #007bff;
+      color: #fff;
+      padding: 8px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      outline: none;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>Peer Support Groups</h1>
-    <div class="feature">
-      <h2>Online Community</h2>
-      <p>Connect with individuals experiencing similar mental health challenges in a supportive online environment.</p>
+    <div class="chat" id="chat">
+      <!-- Sample Messages -->
+      <div class="message">
+        <img src="c:\Users\Lenovo\Pictures\user 1.jfif" class="user-img" alt="User 1">
+        <div class="message-content">
+          <span class="user-name">Kshiti</span>
+          <p>Hi everyone! Just finished a morning jog. Jogging isn't about being the best, it's about pursuing your personal best  🏃‍♂️</p>
+          <img class="image" src="c:\Users\Lenovo\Pictures\jogging.jpg" alt="Image 1">
+        </div>
+      </div>
+      <div class="message">
+        <img src="c:\Users\Lenovo\Pictures\user 4.jfif" class="user-img" alt="User 2">
+        <div class="message-content">
+          <span class="user-name">Shawn</span>
+          <p>Shawn here! recently had a nutricious egg omlette in a breakfast. Eggs+ Fillings= Happiness. 😊</p>
+          <img class="image" src="c:\Users\Lenovo\Pictures\egg.webp" alt="Image 2">
+        </div>
+      </div>
+      <div class="message">
+        <img src="c:\Users\Lenovo\Pictures\Camera Roll\IMG_20230318_192141.jpg" class="user-img" alt="User 3">
+        <div class="message-content">
+          <span class="user-name">Shreya</span>
+          <p>Good morning, everyone! Just finished my Yoga exercise.Filling energetic
+            Yoga is the journey of self, through the self, to the self!. 😊</p>
+          <img class="image" src="c:\Users\Lenovo\Pictures\yoga.webp" alt="Image 3">
+        </div>
+      </div>
+      <div class="message">
+        <img src="c:\Users\Lenovo\Pictures\user 5.jfif" class="user-img" alt="User 1">
+        <div class="message-content">
+          <span class="user-name">John</span>
+          <p>Today i taken my tablets on time. feeling good. after a long term of treatments now i think i am gradually improving my health.</p>
+          <img class="image" src="c:\Users\Lenovo\Pictures\tablet.jpg" alt="Image 1">
+        </div>
+      </div>
+      <!-- Add more sample messages as needed -->
     </div>
-
-    <div class="feature">
-      <h2>Group Discussions</h2>
-      <p>Participate in group discussions to share experiences, insights, and coping strategies with others.</p>
+    <div class="keyboard">
+      <input type="text" class="message-input" placeholder="Type your message...">
+      <input type="file" id="photo-upload" style="display: none;">
+      <label for="photo-upload" class="upload-button">Attach Photo</label>
+      <button class="send-button">Send</button>
     </div>
-
-    <div class="feature">
-      <h2>Peer-led Sessions</h2>
-      <p>Join peer-led sessions facilitated by trained moderators to explore various topics related to mental health.</p>
-    </div>
-
-    <div class="feature">
-      <h2>Anonymous Support</h2>
-      <p>Receive support and guidance from peers while maintaining anonymity, ensuring a safe and confidential space.</p>
-    </div>
-
-    <a href="dashboard.html">Back to Dashboard</a>
   </div>
+
+  <script>
+    document.querySelector('.send-button').addEventListener('click', sendMessage);
+
+    function sendMessage() {
+      var messageInput = document.querySelector('.message-input');
+      var message = messageInput.value.trim();
+      var chat = document.querySelector('#chat');
+
+      if (message !== '') {
+        var newMessage = document.createElement('div');
+        newMessage.classList.add('message');
+        newMessage.innerHTML = `
+          <img src="c:\Users\Lenovo\Pictures\Camera Roll\IMG_20230318_192141.jpg" class="user-img" alt="User 4"> <!-- Change user image as needed -->
+          <div class="message-content">
+            <span class="user-name">You</span>
+            <p>${message}</p>
+          </div>`;
+        chat.appendChild(newMessage);
+        messageInput.value = ''; // Clear input field after sending message
+      }
+    }
+  </script>
 </body>
 </html>
