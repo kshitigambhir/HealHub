@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Progress Tracking - Mental Health Support Platform</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      font-family: 'Arial', sans-serif; /* Default font */
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+    }
+    .container {
+      max-width: 800px;
+      margin: auto;
+      padding: 20px;
+    }
+    h1 {
+      font-family: 'Times New Roman', serif; /* Heading font */
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+    .calendar {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .day {
+      background-color: #fff;
+      border-radius: 10px;
+      padding: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+    .symbol {
+      font-size: 24px;
+      margin-bottom: 5px;
+    }
+    p {
+      font-family: 'Georgia', serif; /* Paragraph font */
+      font-size: 18px;
+      color: #333;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Progress Tracking</h1>
+    <div class="calendar">
+      <div class="day">
+        <span class="symbol">😊</span>
+        <p>Feeling good</p>
+      </div>
+      <div class="day">
+        <span class="symbol">😐</span>
+        <p>Neutral</p>
+      </div>
+      <div class="day">
+        <span class="symbol">😔</span>
+        <p>Feeling down</p>
+      </div>
+      <!-- Repeat the above for each day of the week -->
+    </div>
+
+    <p>Track your mental health progress over time using the symbols above. Each day, select the symbol that best represents your mood or mental state. Over time, this will help you identify patterns and trends in your mental well-being.</p>
+
+    <a href="dashboard.html">Back to Dashboard</a>
+  </div>
+</body>
+</html>
