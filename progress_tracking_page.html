@@ -3,72 +3,156 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Progress Tracking - Mental Health Support Platform</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>Track Your Progress</title>
   <style>
     body {
-      font-family: 'Arial', sans-serif; /* Default font */
+      font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #f5f5f5;
+      background-image: url('c:/Users/Lenovo/Pictures/to do.jpeg'); /* Specify the path to your background image */
+      background-size: cover;
+      background-position: center;
     }
     .container {
-      max-width: 800px;
+      max-width: 1300px;
       margin: auto;
       padding: 20px;
+      background-color: rgba(10, 10, 10, 0.7); /* Add some opacity to make the text more readable */
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
     h1 {
-      font-family: 'Times New Roman', serif; /* Heading font */
       font-size: 32px;
       margin-bottom: 20px;
-    }
-    .calendar {
-      display: grid;
-      grid-template-columns: repeat(7, 1fr);
-      gap: 10px;
-      margin-bottom: 20px;
-    }
-    .day {
-      background-color: #fff;
-      border-radius: 10px;
-      padding: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      color: #007bff;
       text-align: center;
     }
-    .symbol {
-      font-size: 24px;
-      margin-bottom: 5px;
+    ul {
+      list-style-type: none;
+      padding: 0;
     }
-    p {
-      font-family: 'Georgia', serif; /* Paragraph font */
+    li {
+      margin-bottom: 10px;
+      padding: 10px;
+      background-color: #f1f1f1;
+      border-radius: 5px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    label {
+      flex: 1 1 70%; /* Adjust flex basis to control the width of the label */
       font-size: 18px;
       color: #333;
-      margin-bottom: 10px;
+    }
+    input[type="checkbox"] {
+      margin-right: 10px;
+      transform: scale(1.5);
+    }
+    input[type="date"] {
+      flex: 1 1 30%; /* Adjust flex basis to control the width of the input field */
+      padding: 8px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+    }
+    form {
+      display: flex;
+      align-items: center;
+    }
+    input[type="text"] {
+      flex: 1;
+      padding: 10px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+    button[type="submit"] {
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .progress {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #fff;
+      text-align: center;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>Progress Tracking</h1>
-    <div class="calendar">
-      <div class="day">
-        <span class="symbol">😊</span>
-        <p>Feeling good</p>
-      </div>
-      <div class="day">
-        <span class="symbol">😐</span>
-        <p>Neutral</p>
-      </div>
-      <div class="day">
-        <span class="symbol">😔</span>
-        <p>Feeling down</p>
-      </div>
-      <!-- Repeat the above for each day of the week -->
-    </div>
-
-    <p>Track your mental health progress over time using the symbols above. Each day, select the symbol that best represents your mood or mental state. Over time, this will help you identify patterns and trends in your mental well-being.</p>
-
-    <a href="dashboard.html">Back to Dashboard</a>
+    <h1>Track Your Progress</h1>
+    <ul id="task-list">
+      <!-- Tasks will be dynamically added here -->
+    </ul>
+    <form id="task-form">
+      <input type="text" id="task" name="task" placeholder="Enter new task" required>
+      <input type="date" id="deadline" name="deadline">
+      <button type="submit">Add Task</button>
+    </form>
+    <div class="progress" id="progress"></div>
   </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const taskList = document.getElementById('task-list');
+      const taskForm = document.getElementById('task-form');
+      const progress = document.getElementById('progress');
+
+      taskForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const taskInput = document.getElementById('task');
+        const deadlineInput = document.getElementById('deadline');
+        const taskText = taskInput.value.trim();
+        const deadline = deadlineInput.value;
+
+        if (taskText !== '') {
+          const listItem = document.createElement('li');
+          const checkbox = document.createElement('input');
+          checkbox.type = 'checkbox';
+          checkbox.addEventListener('change', updateProgress);
+
+          const label = document.createElement('label');
+          label.textContent = taskText;
+
+          const deadlineLabel = document.createElement('label');
+          deadlineLabel.textContent = deadline;
+
+          listItem.appendChild(checkbox);
+          listItem.appendChild(label);
+          listItem.appendChild(deadlineLabel);
+          taskList.appendChild(listItem);
+
+          taskInput.value = '';
+          deadlineInput.value = '';
+
+          updateProgress();
+        }
+      });
+
+      function updateProgress() {
+        const totalTasks = taskList.children.length;
+        let completedTasks = 0;
+
+        for (let i = 0; i < totalTasks; i++) {
+          const taskItem = taskList.children[i];
+          const checkbox = taskItem.querySelector('input[type="checkbox"]');
+          if (checkbox.checked) {
+            completedTasks++;
+          }
+        }
+
+        const percentageCompleted = (completedTasks / totalTasks) * 100;
+        progress.textContent = `Kudos! You've completed ${percentageCompleted.toFixed(2)}% of your tasks. Keep going!`;
+      }
+    });
+  </script>
 </body>
 </html>
