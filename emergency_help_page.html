@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Health Support Platform - Emergency</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+            position: relative;
+        }
+
+        header {
+            background-color: #007bff;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 16px;
+            margin-top: 10px;
+            margin-bottom: 5px;
+        }
+
+        #logoutBtn {
+            background-color: transparent;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        #logoutBtn:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .emergency-numbers {
+            margin-top: 20px;
+        }
+
+        .emergency-numbers h2 {
+            font-size: 20px;
+            color: #007bff;
+            margin-bottom: 10px;
+        }
+
+        .emergency-numbers ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .emergency-numbers li {
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        .emergency-contacts {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .contact {
+            flex: 1;
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .contact:hover {
+            transform: translateY(-5px);
+        }
+
+        .contact img {
+            max-width: 100px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+
+        .contact h2 {
+            font-size: 20px;
+            color: #007bff;
+            margin-bottom: 10px;
+        }
+
+        .contact p {
+            font-size: 16px;
+            color: #333;
+        }
+
+        .emergency-call {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .emergency-call a {
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right: 10px;
+            text-decoration: none;
+            width: 200px; /* Added fixed width */
+            display: inline-block;
+            text-align: center;
+        }
+
+        .call-emergency {
+            background-color: rgb(243, 90, 90);
+            color: white;
+        }
+
+        .upload-from-gallery {
+            background-color: blue;
+            color: white;
+        }
+
+        #emergencyPhoto {
+            max-width: 100%;
+            margin-top: 20px;
+        }
+
+        #emergencyPhotoPreview {
+            max-width: 100%;
+            margin-top: 20px;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Emergency</h1>
+            <button id="logoutBtn">Logout</button>
+        </header>
+
+        <div class="emergency-numbers">
+            <h2>Emergency Numbers</h2>
+            <ul>
+                <li><a href="tel:911">Ambulance: 911</a></li>
+                <li><a href="tel:911">Police: 911</a></li>
+                <li><a href="tel:911">Fire Department: 911</a></li>
+                <!-- Add more emergency numbers as needed -->
+            </ul>
+        </div>
+
+        <div class="emergency-contacts">
+            <div class="contact">
+                <img src="c:\Users\Lenovo\Pictures\deep.gif" alt="Emergency Contact 1">
+                <h2>Emergency Contact 1</h2>
+                <p><a href="tel:123-456-7890">Contact: 123-456-7890</a></p>
+            </div>
+            <div class="contact">
+                <img src="c:\Users\Lenovo\Pictures\profile.jpg" alt="Emergency Contact 2">
+                <h2>Emergency Contact 2</h2>
+                <p><a href="tel:987-654-3210">Contact: 987-654-3210</a></p>
+            </div>
+            <!-- Add more emergency contacts as needed -->
+        </div>
+
+        <div class="emergency-call">
+            <a href="tel:911" class="call-emergency">Call Emergency Services</a>
+            <label for="emergencyPhoto" class="upload-from-gallery">Upload from Gallery</label>
+            <input type="file" accept="image/*" id="emergencyPhoto" style="display: none;">
+            <img src="#" id="emergencyPhotoPreview" alt="Emergency Photo Preview">
+        </div>
+    </div>
+
+    <script>
+        const emergencyPhotoInput = document.getElementById('emergencyPhoto');
+        const emergencyPhotoPreview = document.getElementById('emergencyPhotoPreview');
+
+        emergencyPhotoInput.addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            const reader = new FileReader();
+
+            reader.onload = function(e) {
+                emergencyPhotoPreview.src = e.target.result;
+                emergencyPhotoPreview.style.display = 'block';
+            };
+
+            reader.readAsDataURL(file);
+        });
+    </script>
+</body>
+
+</html>

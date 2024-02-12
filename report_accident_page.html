@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Health Support Platform - Report an Accident</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #dfd9d9;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+            position: relative;
+        }
+
+        header {
+            background-color: #007bff;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 16px;
+            margin-top: 10px;
+            margin-bottom: 5px;
+        }
+
+        #logoutBtn {
+            background-color: transparent;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        #logoutBtn:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        #reportAccidentBtn {
+            background-color: red;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            margin-bottom: 20px;
+        }
+
+        #reportAccidentBtn:hover {
+            background-color: darkred;
+        }
+
+        #locationInfo {
+            text-align: center;
+            display: none;
+            margin-bottom: 20px;
+        }
+
+        #locationDetails {
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        #uploadedImage {
+            max-width: 300px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Report an Accident</h1>
+            <button id="logoutBtn">Logout</button>
+        </header>
+
+        <main>
+            <input type="file" accept="image/*" id="accidentPhoto" style="display: none;">
+            <div id="locationInfo">
+                <h2>Accident Location and Timing</h2>
+                <p id="locationDetails">No location information available.</p>
+                <img id="uploadedImage" src="" alt="Uploaded Image">
+            </div>
+            <button id="reportAccidentBtn">Report Accident</button>
+        </main>
+    </div>
+
+    <script>
+        document.getElementById('reportAccidentBtn').addEventListener('click', function() {
+            // Trigger the click event of the hidden file input element to initiate photo upload
+            document.getElementById('accidentPhoto').click();
+        });
+
+        document.getElementById('accidentPhoto').addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            const reader = new FileReader();
+
+            reader.onload = function(e) {
+                // Simulate processing the uploaded photo (e.g., sending it to a server for analysis)
+                // For demonstration, let's assume we have the location and timing information already available
+                const location = "Sinhgad college of engineering, Pune";
+                const timing = new Date().toLocaleString();
+
+                // Display the location and timing information
+                document.getElementById('locationDetails').innerText = `Location: ${location}\nTiming: ${timing}`;
+                document.getElementById('locationInfo').style.display = 'block';
+
+                // Display the uploaded image
+                document.getElementById('uploadedImage').src = e.target.result;
+            };
+
+            reader.readAsDataURL(file);
+        });
+    </script>
+</body>
+
+</html>
