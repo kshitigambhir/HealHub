@@ -1,6 +1,6 @@
-#HealHub
+**HealHub**
 Many individuals face challenges in accessing timely and adequate mental health support, leading to issues such as stress, anxiety, depression, and feelings of isolation. Existing solutions often lack accessibility, affordability, and personalization, making it difficult for individuals to receive the support they need when they need it.
-#Website contains
+**Website contains**
 1. *Guided Meditation:* Access guided meditation sessions for stress relief, anxiety management, mindfulness, and relaxation.
 2. *Therapy Chat:* Connect with AI-powered chatbots for therapy-like interactions, offering support, coping strategies, and resources for managing mental health issues.
 3. *Peer Support Groups:* Join virtual peer support groups to connect with others experiencing similar challenges, share experiences, and offer support in a safe and supportive environment.
