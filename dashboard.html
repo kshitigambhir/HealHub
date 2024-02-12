@@ -2,68 +2,242 @@
 <html lang="en">
 
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Mental Health Support Platform - Dashboard</title>
-	<link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Health Support Platform - Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+            position: relative;
+        }
+
+        header {
+            background-color: #007bff;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 16px;
+            margin-top: 10px;
+            margin-bottom: 5px;
+        }
+
+        #logoutBtn {
+            background-color: transparent;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        #logoutBtn:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        main {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .feature {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .feature:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature img {
+            max-width: 100px;
+            margin-bottom: 10px;
+        }
+
+        .feature h2 {
+            font-size: 20px;
+            color: #007bff;
+            margin-bottom: 10px;
+        }
+
+        .feature p {
+            font-size: 16px;
+            color: #333;
+        }
+
+        .footer {
+            background-color: #007bff;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 60%;
+        }
+
+        /* Emergency Feature Styles */
+        .emergency-feature {
+            background-color: #f18d7b;
+            color: #fff;
+            width: calc(100% - 20px);
+            margin-right: 20px;
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .emergency-feature:hover {
+            transform: translateY(-5px) scale(1.05);
+        }
+
+        .emergency-feature img {
+            max-width: 150px;
+            margin-bottom: 10px;
+            filter: brightness(0.8);
+        }
+
+        .emergency-feature h2 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .emergency-feature p {
+            font-size: 20px;
+        }
+
+        /* Report Accident Feature Styles */
+        #reportAccidentBtn {
+            background-color: red;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            margin-top: 20px;
+        }
+
+        #reportAccidentBtn:hover {
+            background-color: rgb(243, 72, 72);
+        }
+    </style>
 </head>
 
 <body>
-	<div class="container">
-		<header>
-			<h1>Welcome to Your Mental Health Dashboard</h1>
-			<p>"Your Health , Our Priority"</p>
-			<div id="profile">
-				<img src="mulgi.png" alt="Profile Picture" style="width: 30px; height: 30px; border-radius: 50%; margin-right: 5px;">
-				<span>Person</span>
-			</div>
-			<button id="logoutBtn">Logout</button>
-		</header>
+    <div class="container">
+        <header>
+            <h1>Welcome to Your Mental Health Dashboard</h1>
+            <p>"Your Health , Our Priority"</p>
+            <div id="profile">
+                <img src="c:\Users\Lenovo\Pictures\profile.jpg" alt="Profile Picture" style="width: 30px; height: 30px; border-radius: 50%; margin-right: 5px;">
+                <span>Person</span>
+            </div>
+            <button id="logoutBtn">Logout</button>
+        </header>
 
-		<main>
-			<a href="guided_meditation_page.html" class="feature" >
-				<img src="cartoon yoga.avif" alt="Guided Meditation">
-				<h2>Guided Meditation</h2>
-				<p>Access guided meditation sessions to help with stress relief, anxiety management, mindfulness, and relaxation.</p>
-			</a>
+        <main>
+            <a href="guided_meditation_page.html" class="feature">
+                <img src="c:\Users\Lenovo\Pictures\meditation.webp" alt="Guided Meditation">
+                <h2>Guided Meditation</h2>
+                <p>Access guided meditation sessions to help with stress relief, anxiety management, mindfulness, and relaxation.</p>
+            </a>
 
-			<a href="therapy_chat_page.html" class="feature">
-				<img src="chatbot.webp" alt="Therapy Chat">
-				<h2>Therapy Chat</h2>
-				<p>Connect with AI-powered chatbots for therapy-like interactions, offering support, coping strategies, and resources for managing mental health issues.</p>
-			</a>
+            <a href="therapy_chat_page.html" class="feature">
+                <img src="c:\Users\Lenovo\Pictures\chat.jpg" alt="Therapy Chat">
+                <h2>Therapy Chat</h2>
+                <p>Connect with AI-powered chatbots for therapy-like interactions, offering support, coping strategies, and resources for managing mental health issues.</p>
+            </a>
 
-			<a href="peer_support_groups_page.html" class="feature">
-				<img src="peergroup1.jpg" alt="Peer Support Groups">
-				<h2>Peer Support Groups</h2>
-				<p>Join virtual peer support groups to connect with others experiencing similar mental health challenges, share experiences, and offer support.</p>
-			</a>
+            <a href="peer_support_groups_page.html" class="feature">
+                <img src="c:\Users\Lenovo\Pictures\peer.jpeg" alt="Peer Support Groups">
+                <h2>Peer Support Groups</h2>
+                <p>Join virtual peer support groups to connect with others experiencing similar mental health challenges, share experiences, and offer support.</p>
+            </a>
 
-			<a href="resource_library_page.html" class="feature">
-				<img src="books.avif" alt="Resource Library">
-				<h2>Resource Library</h2>
-				<p>Access a comprehensive library of mental health resources, including articles, videos, podcasts, and self-help guides.</p>
-			</a>
+            <a href="resource_library_page.html" class="feature">
+                <img src="c:\Users\Lenovo\Pictures\books.avif" alt="Resource Library">
+                <h2>Resource Library</h2>
+                <p>Access a comprehensive library of mental health resources, including articles, videos, podcasts, and self-help guides.</p>
+            </a>
 
-			<a href="progress_tracking_page.html" class="feature">
-				<img src="track.jpg" alt="Progress Tracking">
-				<h2>Progress Tracking</h2>
-				<p>Track your mental health progress over time, including mood changes, coping strategies, and self-care activities.</p>
-			</a>
+            <a href="progress_tracking_page.html" class="feature">
+                <img src="c:\Users\Lenovo\Pictures\progress.jpg" alt="Progress Tracking">
+                <h2>Progress Tracking</h2>
+                <p>Track your mental health progress over time, including mood changes, coping strategies, and self-care activities.</p>
+            </a>
 
-			<a href="community_forums_page.html" class="feature">
-				<img src="community1.avif" alt="Community Forums">
-				<h2>Community Forums</h2>
-				<p>Engage in conversations, ask questions, seek advice, and share insights with other community members in a supportive environment.</p>
-			</a>
-		</main>
+            <a href="community_forums_page.html" class="feature">
+                <img src="c:\Users\Lenovo\Pictures\community.jpg" alt="Community Forums">
+                <h2>Community Forums</h2>
+                <p>Engage in conversations, ask questions, seek advice, and share insights with other community members in a supportive environment.</p>
+            </a>
 
-		
-	</div>
-	<footer class="footer">
-		<p>&copy; 2024 Mental Health Support Platform</p>
-	</footer>
-	<script src="app.js"></script>
+            <!-- My Doctor Feature -->
+            <a href="my_doctor_page.html" class="feature">
+                <img src="c:\Users\Lenovo\Pictures\doctor.jpg" alt="My Doctor">
+                <h2>Call my Doctor</h2>
+                <p>Find and contact doctors or medical professionals nearby. Access emergency contacts for immediate assistance.</p>
+            </a>
+
+            <!-- Emergency Feature -->
+            <a href="emergency_help_page.html" class="feature emergency-feature">
+                <img src="c:\Users\Lenovo\Pictures\emergency.jpg" alt="Emergency Help">
+                <h2>Emergency Help</h2>
+                <p>Get immediate assistance and support for mental health emergencies.</p>
+            </a>
+
+            <!-- Report Accident Feature -->
+            <a href="report_accident_page.html" class="feature">
+                <h2>Report an Accident</h2>
+                <button id="reportAccidentBtn">Report Accident</button>
+            </a>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+    <script>
+        document.getElementById('reportAccidentBtn').addEventListener('click', function() {
+            // Trigger the click event of the hidden file input element to initiate photo upload
+            document.getElementById('accidentPhoto').click();
+        });
+    </script>
 </body>
 
 </html>
